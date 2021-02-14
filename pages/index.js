@@ -12,9 +12,11 @@ export default function Home({ blog }) {
               <div className='card'>
                 <h3 className='card_title'>{blog.title}</h3>
                 <p className='card_publishedAt'>
-                  {'公開日時　：' && blog.publishedAt.substr(0, 10)}</p>
+                  `公開日時　： ${blog.publishedAt.substr(0, 10)}`
+                </p>
                 <p className="card_category">
-                  {'カテゴリー：' && blog.category && `${blog.category.name}`}</p>
+                  `カテゴリー： ${blog.category && `${blog.category.name}`}`
+                  </p>
                 <Link href={`blog/${blog.id}`}>
                   <a className='card_text_link'>{'読む >>'}</a>
                 </Link>
