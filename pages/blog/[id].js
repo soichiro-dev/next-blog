@@ -6,12 +6,12 @@ export default function BlogId({ blog }) {
     <div>
       <Header />
       <main>
-        <h3>{blog.title}</h3>
+        <h3 className="blog_title">{blog.title}</h3>
         <p className='blog_publishedAt'>
-          `公開日時　： ${blog.publishedAt.substr(0, 10)}`
+          公開日時　： {blog.publishedAt.substr(0, 10)}
         </p>
         <p className="blog_category">
-          `カテゴリー： ${blog.category && `${blog.category.name}`}`
+          カテゴリー： {blog.category && `${blog.category.name}`}
         </p>
         <div className='blog_body'
           dangerouslySetInnerHTML={{

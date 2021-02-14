@@ -22,17 +22,18 @@ main {
     margin: 0;
 }
 
-.card_publishedAt,
-.card_category,
+.card_title,
 .card_text_link,
-.blog_publishedAt,
-.blog_category,
+.blog_title,
 .blog_body,
 .home_link {
     padding: 0.8em 0;
 }
 
-.card_publishedAt {
+.card_publishedAt,
+.card_category,
+.blog_publishedAt,
+.blog_category {
     font-size: 0.8em;
 }
 
