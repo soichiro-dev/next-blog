@@ -25,6 +25,7 @@ main {
 .card_publishedAt,
 .card_text_link,
 .blog_publishedAt,
+.blog_category,
 .blog_body,
 .home_link {
     padding: 0.8em 0;
