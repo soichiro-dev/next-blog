@@ -1,65 +1,41 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link';
+import Header from '../components/header.js'
 
-export default function Home() {
+export default function Home({ blog }) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+    <div>
+      <Header />
+      <main>
+        <ul className='blog'>
+          {blog.map(blog => (
+            <li key={blog.id}>
+              <div className='card'>
+                <h3 className='card_title'>{blog.title}</h3>
+                <p className='card_publishedAt'>{blog.publishedAt.substr(0, 10)}</p>
+                <Link href={`blog/${blog.id}`}>
+                  <a className='card_text_link'>{'読む >>'}</a>
+                </Link>
+              </div>
+            </li>
+          ))}
+        </ul>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
-  )
+  );
 }
+
+
+// データをテンプレートに受け渡す部分の処理
+export const getStaticProps = async () => {
+  const key = {
+    headers: { 'X-API-KEY': process.env.API_KEY },
+  };
+  const data = await fetch('https://e2blog.microcms.io/api/v1/blog', key)
+    .then(res => res.json())
+    .catch(() => null);
+  return {
+    props: {
+      blog: data.contents,
+    },
+  };
+};

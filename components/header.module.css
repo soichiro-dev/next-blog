@@ -1,0 +1,41 @@
+.title {
+  margin-top: 24px;
+  margin-left: 8px;
+  font-size: 36px;
+}
+
+.menu_home {
+  margin-top: 24px;
+  margin-left: 16px;
+  position: relative;
+  display: inline-block;
+  color: #0000EE;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2em;
+  -webkit-transition: .8s;
+  transition: .8s;
+}
+  
+.menu_home:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+  
+.menu_home::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #0000EE;
+  transform: scale(0.5, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+  
+.menu_home:hover::after {
+  transform: scale(1, 1);
+}
