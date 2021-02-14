@@ -1,20 +1,24 @@
 main {
     margin-top: 24px;
     margin-left: 16px;
-    padding: 1.2em 0.8em;
+    padding: 1.2em 0.4em;
 }
 
-.blog {
+.card_list {
     list-style-type: none;
     display: grid;
     grid-gap: 10px 10px;
-    padding: 0;
 }
 
 .card {
     box-sizing: border-box;
     color: #333;
     border: 0.5px solid #e9eaea;
+    padding-left: 0.4em;
+}
+
+.blog {
+    padding-left: 0.4em;
 }
 
 .card_title,

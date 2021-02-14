@@ -6,7 +6,7 @@ export default function Home({ blog }) {
     <div>
       <Header />
       <main>
-        <ul className='blog'>
+        <ul className='card_list'>
           {blog.map(blog => (
             <li key={blog.id}>
               <div className='card'>

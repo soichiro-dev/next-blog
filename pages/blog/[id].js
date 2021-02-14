@@ -6,21 +6,23 @@ export default function BlogId({ blog }) {
     <div>
       <Header />
       <main>
-        <h3 className="blog_title">{blog.title}</h3>
-        <p className='blog_publishedAt'>
-          公開日時　： {blog.publishedAt.substr(0, 10)}
-        </p>
-        <p className="blog_category">
-          カテゴリー： {blog.category && `${blog.category.name}`}
-        </p>
-        <div className='blog_body'
-          dangerouslySetInnerHTML={{
-            __html: `${blog.body}`,
-          }}
-        />
-        <Link href="/">
-          <a className='home_link'>{'<< 戻る'}</a>
-        </Link>
+        <div className='blog'>
+          <h3 className="blog_title">{blog.title}</h3>
+          <p className='blog_publishedAt'>
+            公開日時　： {blog.publishedAt.substr(0, 10)}
+          </p>
+          <p className='blog_category'>
+            カテゴリー： {blog.category && `${blog.category.name}`}
+          </p>
+          <div className='blog_body'
+            dangerouslySetInnerHTML={{
+              __html: `${blog.body}`,
+            }}
+          />
+          <Link href="/">
+            <a className='home_link'>{'<< 戻る'}</a>
+          </Link>
+        </div>
       </main>
     </div>
   );
