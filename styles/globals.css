@@ -63,6 +63,7 @@ main {
 
 .blog_body h2 {
   font-size: large;
-  padding-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
   border-bottom: 1px solid #cccccc;
 }
