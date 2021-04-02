@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Header from '../../components/header.js'
-import marked from 'marked'
 
 export default function BlogId({ blog }) {
   return (
@@ -17,7 +16,7 @@ export default function BlogId({ blog }) {
           </p>
           <div className='blog_body'
             dangerouslySetInnerHTML={{
-              __html: `${marked(blog.body)}`,
+              __html: `${blog.body}`,
             }}
           />
           <Link href="/">
