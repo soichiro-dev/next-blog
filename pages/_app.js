@@ -1,4 +1,3 @@
-import '../styles/destyle.css'
 import '../styles/globals.css'
 
 function NextjsBlog({ Component, pageProps }) {
